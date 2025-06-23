@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলা নিউজ পোর্টাল</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =================================
+           CSS কোড শুরু
+           ================================= */
+
+        /* Basic Styles */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a0dab;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background-color: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .logo a {
+            color: #d32f2f;
+            font-weight: 700;
+        }
+        .logo a:hover {
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        .main-nav ul li a:hover {
+            background-color: #d32f2f;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Breaking News Styles */
+        .breaking-news {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .breaking-news-title {
+            background-color: #d32f2f;
+            padding: 10px 15px;
+            font-weight: 700;
+            white-space: nowrap; /* লেখা যেন এক লাইনে থাকে */
+        }
+        .breaking-news-content {
+            flex-grow: 1; /* বাকি সব জায়গা নিয়ে নিবে */
+            overflow: hidden; /* ভেতরের লেখা বাইরে যাবে না */
+        }
+        .breaking-news-content marquee {
+            font-size: 15px;
+        }
+
+
+        /* Main Content & News Card Styles */
+        .main-content {
+            padding: 20px 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9; /* ছবির সাইজ ঠিক রাখার জন্য */
+            object-fit: cover;
+        }
+
+        .news-card .card-content {
+            padding: 15px;
+        }
+
+        .news-card h2, .news-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .news-card h2 a, .news-card h3 a {
+            color: #333;
+        }
+        .news-card p {
+            margin: 0;
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Featured News Style */
+        .featured {
+            grid-column: 1 / -1; /* গ্রিডের সম্পূর্ণ জায়গা নিবে */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* ছবি এবং টেক্সট পাশাপাশি */
+            align-items: center;
+            gap: 20px;
+        }
+
+        .featured img {
+            height: 100%;
+        }
+
+        .featured h2 {
+            font-size: 26px;
+        }
+        
+        /* Footer Styles */
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .featured {
+                grid-template-columns: 1fr; /* ছোট স্ক্রিনে কলাম একটি হবে */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">বাংলা নিউজ</a></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">জাতীয়</a></li>
+                    <li><a href="#">আন্তর্জাতিক</a></li>
+                    <li><a href="#">রাজনীতি</a></li>
+                    <li><a href="#">খেলা</a></li>
+                    <li><a href="#">বিনোদন</a></li>
+                    <li><a href="#">প্রযুক্তি</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breaking-news">
+        <div class="container">
+            <div class="breaking-news-title">ব্রেকিং নিউজ</div>
+            <div class="breaking-news-content">
+                 <marquee>আজকের সর্বশেষ সংবাদ: দিনাজপুরে তীব্র গরমের পর স্বস্তির বৃষ্টি। বিস্তারিত জানতে ক্লিক করুন...</marquee>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content container">
+        
+        <article class="news-card featured">
+            <img src="https://via.placeholder.com/600x350/cccccc/333333.png?text=প্রধান+খবরের+ছবি" alt="প্রধান খবরের ছবি">
+            <div class="card-content">
+                <h2><a href="#">এটি প্রধান খবরের শিরোনাম: দেশের অর্থনীতি নতুন মোড় নিচ্ছে</a></h2>
+                <p>এখানে খবরের একটি সংক্ষিপ্ত অংশ থাকবে যা ব্যবহারকারীকে পুরো খবরটি পড়তে আগ্রহী করবে। সরকারের নতুন নীতি এবং বেসরকারি খাতের উদ্যোগের ফলে বিনিয়োগ বাড়ছে এবং নতুন কর্মসংস্থানের সুযোগ সৃষ্টি হচ্ছে...</p>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <img src="https://via.placeholder.com/400x225/cccccc/333333.png?text=খবরের+ছবি" alt="খবরের ছবি">
+            <div class="card-content">
+                <h3><a href="#">খেলার জগতে নতুন উত্তেজনা</a></h3>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <img src="https://via.placeholder.com/400x225/cccccc/333333.png?text=খবরের+ছবি" alt="খবরের ছবি">
+            <div class="card-content">
+                <h3><a href="#">বিনোদন জগতে নতুন সিনেমার মুক্তি</a></h3>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <img src="https://via.placeholder.com/400x225/cccccc/333333.png?text=খবরের+ছবি" alt="খবরের ছবি">
+            <div class="card-content">
+                <h3><a href="#">আন্তর্জাতিক বাজারে মুদ্রার দামের উত্থান-পতন</a></h3>
+            </div>
+        </article>
+        
+        <article class="news-card">
+            <img src="https://via.placeholder.com/400x225/cccccc/333333.png?text=খবরের+ছবি" alt="খবরের ছবি">
+            <div class="card-content">
+                <h3><a href="#">প্রযুক্তির নতুন আবিষ্কার: কৃত্রিম বুদ্ধিমত্তার অগ্রগতি</a></h3>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; ২০২৫ সর্বস্বত্ব সংরক্ষিত | বাংলা নিউজ পোর্টাল</p>
+        </div>
+    </footer>
+
+    <script>
+        // এই মুহূর্তে আমাদের কোনো জটিল জাভাস্ক্রিপ্টের প্রয়োজন নেই।
+        // ভবিষ্যতে মেনু টগল বা স্লাইডারের জন্য এখানে কোড লেখা যেতে পারে।
+        console.log("বাংলা নিউজ পোর্টাল লোড হয়েছে!");
+    </script>
+
+</body>
+</html>
